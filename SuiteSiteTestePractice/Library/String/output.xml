@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.9.5 on win32)" generated="20210713 15:54:53.293" rpa="false" schemaversion="2">
+<suite id="s1" name="String" source="C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\string.robot">
+<test id="s1-t1" name="Exemplo 01: Lidando com linhas de um texto String">
+<kw name="Contando as linhas">
+<kw name="Pega arquivo">
+<var>${STRING}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.342" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.342" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.341" endtime="20210713 15:54:53.342"/>
+</kw>
+<msg timestamp="20210713 15:54:53.342" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.341" endtime="20210713 15:54:53.342"/>
+</kw>
+<kw name="Get Line Count" library="String">
+<var>${LINHAS}</var>
+<arg>${STRING}</arg>
+<doc>Returns and logs the number of lines in the given string.</doc>
+<msg timestamp="20210713 15:54:53.342" level="INFO">6 lines</msg>
+<msg timestamp="20210713 15:54:53.343" level="INFO">${LINHAS} = 6</msg>
+<status status="PASS" starttime="20210713 15:54:53.342" endtime="20210713 15:54:53.343"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Meu arquivo tem: ${LINHAS} linhas!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.343" level="INFO">Meu arquivo tem: 6 linhas!!</msg>
+<status status="PASS" starttime="20210713 15:54:53.343" endtime="20210713 15:54:53.343"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.341" endtime="20210713 15:54:53.343"/>
+</kw>
+<kw name="Pegando uma linha específica">
+<kw name="Pega arquivo">
+<var>${STRING}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.344" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.344" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.344" endtime="20210713 15:54:53.344"/>
+</kw>
+<msg timestamp="20210713 15:54:53.344" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.343" endtime="20210713 15:54:53.344"/>
+</kw>
+<kw name="Get Line" library="String">
+<var>${LINHA_3}</var>
+<arg>${STRING}</arg>
+<arg>3</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.344" level="INFO">${LINHA_3} = Minha linha 03!</msg>
+<status status="PASS" starttime="20210713 15:54:53.344" endtime="20210713 15:54:53.344"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha 03 do arquivo:\n"${LINHA_3}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.345" level="INFO">Conteúdo da linha 03 do arquivo:
+"Minha linha 03!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.344" endtime="20210713 15:54:53.345"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${NUMERO_LINHA}</var>
+<value>0</value>
+<value>6</value>
+<iter>
+<var name="${NUMERO_LINHA}">0</var>
+<kw name="Get Line" library="String">
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.345" level="INFO">${CONTEUDO_LINHA} = Minha linha 00!</msg>
+<status status="PASS" starttime="20210713 15:54:53.345" endtime="20210713 15:54:53.345"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.345" level="INFO">Conteúdo da linha 0 do arquivo:
+"Minha linha 00!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.345" endtime="20210713 15:54:53.345"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.345" endtime="20210713 15:54:53.345"/>
+</iter>
+<iter>
+<var name="${NUMERO_LINHA}">1</var>
+<kw name="Get Line" library="String">
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.346" level="INFO">${CONTEUDO_LINHA} = Minha linha 01!</msg>
+<status status="PASS" starttime="20210713 15:54:53.346" endtime="20210713 15:54:53.346"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.346" level="INFO">Conteúdo da linha 1 do arquivo:
+"Minha linha 01!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.346" endtime="20210713 15:54:53.346"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.346" endtime="20210713 15:54:53.346"/>
+</iter>
+<iter>
+<var name="${NUMERO_LINHA}">2</var>
+<kw name="Get Line" library="String">
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.347" level="INFO">${CONTEUDO_LINHA} = Minha linha 02!</msg>
+<status status="PASS" starttime="20210713 15:54:53.346" endtime="20210713 15:54:53.347"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.347" level="INFO">Conteúdo da linha 2 do arquivo:
+"Minha linha 02!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.347" endtime="20210713 15:54:53.347"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.346" endtime="20210713 15:54:53.347"/>
+</iter>
+<iter>
+<var name="${NUMERO_LINHA}">3</var>
+<kw name="Get Line" library="String">
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.347" level="INFO">${CONTEUDO_LINHA} = Minha linha 03!</msg>
+<status status="PASS" starttime="20210713 15:54:53.347" endtime="20210713 15:54:53.347"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.348" level="INFO">Conteúdo da linha 3 do arquivo:
+"Minha linha 03!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.347" endtime="20210713 15:54:53.348"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.347" endtime="20210713 15:54:53.348"/>
+</iter>
+<iter>
+<var name="${NUMERO_LINHA}">4</var>
+<kw name="Get Line" library="String">
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.348" level="INFO">${CONTEUDO_LINHA} = Minha linha 04!</msg>
+<status status="PASS" starttime="20210713 15:54:53.348" endtime="20210713 15:54:53.348"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.349" level="INFO">Conteúdo da linha 4 do arquivo:
+"Minha linha 04!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.348" endtime="20210713 15:54:53.349"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.348" endtime="20210713 15:54:53.349"/>
+</iter>
+<iter>
+<var name="${NUMERO_LINHA}">5</var>
+<kw name="Get Line" library="String">
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.349" level="INFO">${CONTEUDO_LINHA} = Minha linha 05!</msg>
+<status status="PASS" starttime="20210713 15:54:53.349" endtime="20210713 15:54:53.349"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.350" level="INFO">Conteúdo da linha 5 do arquivo:
+"Minha linha 05!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.349" endtime="20210713 15:54:53.350"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.349" endtime="20210713 15:54:53.350"/>
+</iter>
+<status status="PASS" starttime="20210713 15:54:53.345" endtime="20210713 15:54:53.350"/>
+</for>
+<status status="PASS" starttime="20210713 15:54:53.343" endtime="20210713 15:54:53.350"/>
+</kw>
+<kw name="Pegando uma linha específica com a palavra &quot;linha 01&quot;" sourcename="Pegando uma linha específica com a palavra &quot;${PALAVRA}&quot;">
+<kw name="Pega arquivo">
+<var>${STRING}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.351" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.351" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.351" endtime="20210713 15:54:53.351"/>
+</kw>
+<msg timestamp="20210713 15:54:53.352" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.351" endtime="20210713 15:54:53.352"/>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<var>${LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${PALAVRA}</arg>
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<msg timestamp="20210713 15:54:53.352" level="INFO">1 out of 6 lines matched</msg>
+<msg timestamp="20210713 15:54:53.352" level="INFO">${LINHA} = Minha linha 01!</msg>
+<status status="PASS" starttime="20210713 15:54:53.352" endtime="20210713 15:54:53.352"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Linha com ${PALAVRA}:\n"${LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.352" level="INFO">Linha com linha 01:
+"Minha linha 01!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.352" endtime="20210713 15:54:53.352"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.351" endtime="20210713 15:54:53.352"/>
+</kw>
+<kw name="Pegando até um marcador">
+<kw name="Pega arquivo">
+<var>${STRING}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.353" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.353" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.353" endtime="20210713 15:54:53.353"/>
+</kw>
+<msg timestamp="20210713 15:54:53.354" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.353" endtime="20210713 15:54:53.354"/>
+</kw>
+<kw name="Get Line" library="String">
+<var>${LINHA}</var>
+<arg>${STRING}</arg>
+<arg>0</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<msg timestamp="20210713 15:54:53.354" level="INFO">${LINHA} = Minha linha 00!</msg>
+<status status="PASS" starttime="20210713 15:54:53.354" endtime="20210713 15:54:53.354"/>
+</kw>
+<kw name="Fetch From Left" library="String">
+<var>${COMECO}</var>
+<arg>${LINHA}</arg>
+<arg>0</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<msg timestamp="20210713 15:54:53.354" level="INFO">${COMECO} = Minha linha </msg>
+<status status="PASS" starttime="20210713 15:54:53.354" endtime="20210713 15:54:53.354"/>
+</kw>
+<kw name="Fetch From Right" library="String">
+<var>${FIM}</var>
+<arg>${LINHA}</arg>
+<arg>linha${SPACE}</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<msg timestamp="20210713 15:54:53.354" level="INFO">${FIM} = 00!</msg>
+<status status="PASS" starttime="20210713 15:54:53.354" endtime="20210713 15:54:53.354"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Começo: "${COMECO}"\nFim:"${FIM}"\n\nTudo junto: "${COMECO}${FIM}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.355" level="INFO">Começo: "Minha linha "
+Fim:"00!"
+
+Tudo junto: "Minha linha 00!"</msg>
+<status status="PASS" starttime="20210713 15:54:53.354" endtime="20210713 15:54:53.355"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.353" endtime="20210713 15:54:53.356"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.340" endtime="20210713 15:54:53.356"/>
+</test>
+<test id="s1-t2" name="Exemplo 02: Manipulando a String">
+<kw name="Substituindo valores no texto">
+<kw name="Pega arquivo">
+<var>${TEXTO}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.359" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.359" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.359" endtime="20210713 15:54:53.359"/>
+</kw>
+<msg timestamp="20210713 15:54:53.360" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.359" endtime="20210713 15:54:53.360"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${NOVO_TEXTO}</var>
+<arg>string=${TEXTO}</arg>
+<arg>search_for=Minha linha</arg>
+<arg>replace_with=Conteúdo da minha linha</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20210713 15:54:53.360" level="INFO">${NOVO_TEXTO} = Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.360" endtime="20210713 15:54:53.360"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>O velho texto era assim:\n${TEXTO}\nO novo texto ficou assim:\n${NOVO_TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.360" level="INFO">O velho texto era assim:
+Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+
+O novo texto ficou assim:
+Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.360" endtime="20210713 15:54:53.360"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>./my_files/meu_novo_arquivo.txt</arg>
+<arg>${NOVO_TEXTO}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20210713 15:54:53.361" level="INFO" html="true">Created file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\meu_novo_arquivo.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\meu_novo_arquivo.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210713 15:54:53.361" endtime="20210713 15:54:53.361"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.358" endtime="20210713 15:54:53.362"/>
+</kw>
+<kw name="Quero tudo minúsculo!">
+<kw name="Pega arquivo">
+<var>${TEXTO}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.363" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.363" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.363" endtime="20210713 15:54:53.363"/>
+</kw>
+<msg timestamp="20210713 15:54:53.363" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.362" endtime="20210713 15:54:53.363"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${TEXTO}</var>
+<arg>${TEXTO}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20210713 15:54:53.363" level="INFO">${TEXTO} = minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.363" endtime="20210713 15:54:53.363"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Meu texto todo minúsculo:\n${TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.364" level="INFO">Meu texto todo minúsculo:
+minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.363" endtime="20210713 15:54:53.364"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.362" endtime="20210713 15:54:53.364"/>
+</kw>
+<kw name="Quero tudo maiúsculo!">
+<kw name="Pega arquivo">
+<var>${TEXTO}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20210713 15:54:53.365" level="INFO" html="true">Getting file '&lt;a href="file://C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt"&gt;C:\PROJ_ROBOT\SuiteSiteTestePractice\Library\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210713 15:54:53.365" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.365" endtime="20210713 15:54:53.365"/>
+</kw>
+<msg timestamp="20210713 15:54:53.365" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.364" endtime="20210713 15:54:53.365"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${TEXTO}</var>
+<arg>${TEXTO}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20210713 15:54:53.365" level="INFO">${TEXTO} = MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.365" endtime="20210713 15:54:53.365"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Meu texto todo maiúsculo:\n${TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210713 15:54:53.366" level="INFO">Meu texto todo maiúsculo:
+MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<status status="PASS" starttime="20210713 15:54:53.365" endtime="20210713 15:54:53.366"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.364" endtime="20210713 15:54:53.366"/>
+</kw>
+<status status="PASS" starttime="20210713 15:54:53.358" endtime="20210713 15:54:53.366"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/String.html</doc>
+<status status="PASS" starttime="20210713 15:54:53.293" endtime="20210713 15:54:53.368"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="String">String</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

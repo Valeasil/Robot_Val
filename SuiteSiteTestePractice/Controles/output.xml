@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.9.5 on win32)" generated="20210712 19:43:07.458" rpa="false" schemaversion="2">
+<suite id="s1" name="Date Time" source="C:\PROJ_ROBOT\SuiteSiteTestePractice\Controles\date_time.robot">
+<test id="s1-t1" name="Exemplo 01: Pegando data e hora atuais">
+<kw name="Teste pegando data atual">
+<kw name="Get Current Date" library="DateTime">
+<var>${AGORA}</var>
+<arg>result_format=%d-%m-%y</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${AGORA} = 12-07-21</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${AGORA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">12-07-21</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Teste pegando data e hora atuais">
+<kw name="Get Current Date" library="DateTime">
+<var>${AGORA}</var>
+<arg>result_format=%Y-%m-%dT%H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${AGORA} = 2021-07-12T19:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${AGORA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">2021-07-12T19:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Teste pegando ano - mês - dia separadamente">
+<kw name="Get Current Date" library="DateTime">
+<var>${HOJE}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${HOJE} = 2021-07-12 19:43:07.480</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<var>${HOJE}</var>
+<arg>${HOJE}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${HOJE} = 2021-07-12 19:43:07.480000</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${HOJE.day}-${HOJE.month}-${HOJE.year}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">12-7-2021</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</test>
+<test id="s1-t2" name="Exemplo 02: Manipulando o tempo">
+<kw name="Trabalhando com tempo">
+<kw name="Convert Time" library="DateTime">
+<var>${HORA}</var>
+<arg>1 minute 30 seconds</arg>
+<doc>Converts between supported `time formats`.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${HORA} = 90.0</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>São ${HORA} segundos em 1 minuto e 30 segundos!</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">São 90.0 segundos em 1 minuto e 30 segundos!</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Convert Time" library="DateTime">
+<var>${HORA}</var>
+<arg>5400</arg>
+<arg>verbose</arg>
+<doc>Converts between supported `time formats`.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${HORA} = 1 hour 30 minutes</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>5400 segundos é ${HORA}!</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">5400 segundos é 1 hour 30 minutes!</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Convert Time" library="DateTime">
+<var>${HORA}</var>
+<arg>5500</arg>
+<arg>timer</arg>
+<arg>exclude_millis=yes</arg>
+<doc>Converts between supported `time formats`.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">${HORA} = 01:31:40</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>5500 segundos é ${HORA}!</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.480" level="INFO">5500 segundos é 01:31:40!</msg>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.480"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.496"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.480" endtime="20210712 19:43:07.496"/>
+</test>
+<test id="s1-t3" name="Exemplo 03: Cálculos com data">
+<kw name="Adicionando tempo de data">
+<kw name="Get Current Date" library="DateTime">
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${ANTES} = 2021-07-12 19:43:07.496</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>4 hours</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${DEPOIS} = 12-07-2021 23:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">Antes: 2021-07-12 19:43:07.496 - Depois: 12-07-2021 23:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${ANTES} = 2021-07-12 19:43:07.496</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>7 days</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${DEPOIS} = 19-07-2021 19:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">Antes: 2021-07-12 19:43:07.496 - Depois: 19-07-2021 19:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Subtraindo tempo de data">
+<kw name="Get Current Date" library="DateTime">
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${ANTES} = 2021-07-12 19:43:07.496</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>25 minutes</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${DEPOIS} = 12-07-2021 19:18:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">Antes: 2021-07-12 19:43:07.496 - Depois: 12-07-2021 19:18:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${ANTES} = 2021-07-12 19:43:07.496</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>2 days</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">${DEPOIS} = 10-07-2021 19:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210712 19:43:07.496" level="INFO">Antes: 2021-07-12 19:43:07.496 - Depois: 10-07-2021 19:43:07</msg>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</kw>
+<status status="PASS" starttime="20210712 19:43:07.496" endtime="20210712 19:43:07.496"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/DateTime.html</doc>
+<status status="PASS" starttime="20210712 19:43:07.458" endtime="20210712 19:43:07.496"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Date Time">Date Time</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
